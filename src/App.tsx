@@ -1,5 +1,12 @@
+import { HeaderFeature, HomeFeature, PageFeature } from "./features";
+
 function App() {
-  return <div>Hello</div>;
+  return (
+    <PageFeature>
+      <HeaderFeature />
+      <HomeFeature />
+    </PageFeature>
+  );
 }
 
 export default App;
