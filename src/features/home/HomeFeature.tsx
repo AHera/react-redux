@@ -1,9 +1,18 @@
 import { PostList } from "./components";
+import { Pagination } from "./components/Pagination";
 
 import { useDataPosts } from "./hooks";
 
 export const HomeFeature = () => {
-  const { posts } = useDataPosts();
+  const { posts, pagination, onChangePagination } = useDataPosts();
 
-  return <PostList posts={posts} />;
+  return (
+    <div>
+      <Pagination
+        onChangePagination={onChangePagination}
+        pagination={pagination}
+      />
+      <PostList posts={posts} />
+    </div>
+  );
 };
