@@ -1,14 +1,15 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { Link } from "react-router-dom";
 import { PostsInterface } from "../interfaces";
 
 interface Props {
   post: PostsInterface;
 }
 
-export const PostItem = ({ post }: Props) => (
+export const PostItem = ({ post: { id, title, body } }: Props) => (
   <div>
-    <h3>{post.title}</h3>
-    <p>{post.body}</p>
+    <h3>
+      <Link to={`/post/${id}`}>{title}</Link>
+    </h3>
+    <p>{body}</p>
   </div>
 );

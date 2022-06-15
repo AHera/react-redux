@@ -2,7 +2,8 @@
 import { css } from "@emotion/react";
 import { SinglePostInterface } from "../inetrfaces";
 
-import RandomId from "../../../common/RandomId";
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 interface Props {
   singlePost: SinglePostInterface;
@@ -25,6 +26,17 @@ export const SinglePost = ({
     <p>{body}</p>
     <p>Reactions: {reactions}</p>
     <p>User ID: {userId}</p>
+    <Link
+      to="/"
+      css={css`
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin: 20px;
+      `}
+    >
+      <Button variant="outlined">Go back</Button>
+    </Link>
     {/* <p>Post tags:</p>
     <div
       css={css`

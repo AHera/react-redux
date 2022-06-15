@@ -10,7 +10,7 @@ export const HeaderFeature = () => (
   >
     <div
       css={css`
-        max-width: 150px;
+        max-width: 45px;
         margin: auto;
       `}
     >

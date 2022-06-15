@@ -20,6 +20,8 @@ export const Pagination = ({
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        background: #cdcdcda3;
+        padding: 10px;
       `}
       onChange={onChangePagination}
       page={page}

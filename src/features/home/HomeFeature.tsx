@@ -8,11 +8,11 @@ export const HomeFeature = () => {
 
   return (
     <div>
+      <PostList posts={posts} />
       <Pagination
         onChangePagination={onChangePagination}
         pagination={pagination}
       />
-      <PostList posts={posts} />
     </div>
   );
 };

@@ -1,4 +1,1 @@
-[
-  { "id": 1, "name": "Home", "url": "/" },
-  { "id": 2, "name": "Post 1", "url": "/post-1" }
-]
+[{ "id": 1, "name": "Home", "url": "/" }]

@@ -4,6 +4,6 @@ import { HomeFeature, SinglePostFeature } from "../../features";
 export const AppRouter = () => (
   <Routes>
     <Route path="/" element={<HomeFeature />} />
-    <Route path="/post-1" element={<SinglePostFeature />} />
+    <Route path="/post/:postId" element={<SinglePostFeature />} />
   </Routes>
 );
