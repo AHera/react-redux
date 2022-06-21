@@ -1,4 +1,4 @@
-import { PostList } from "./components";
+import { AddPostPopup, PostList } from "./components";
 import { Pagination } from "./components/Pagination";
 
 import { useDataPosts } from "./hooks";
@@ -8,6 +8,7 @@ export const HomeFeature = () => {
 
   return (
     <div>
+      <AddPostPopup />
       <PostList posts={posts} />
       <Pagination
         onChangePagination={onChangePagination}

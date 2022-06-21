@@ -9,3 +9,13 @@ export interface PaginationInterface {
   total: number;
   page: number;
 }
+
+export interface Errors {
+  title: boolean;
+  description: boolean;
+}
+
+export interface Fields {
+  title: string;
+  description: string;
+}
