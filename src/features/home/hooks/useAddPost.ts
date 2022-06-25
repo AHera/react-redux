@@ -2,7 +2,7 @@ import { title } from "process";
 import { useState } from "react";
 import { Errors, Fields } from "../interfaces";
 
-export const useAddPost = () => {
+export const useAddPost = (handleClose: () => void) => {
   const [errors, setErrors] = useState({} as Errors);
 
   const newErrors = {
@@ -11,12 +11,16 @@ export const useAddPost = () => {
   };
 
   const validate = (fields: Fields) => {
-    if (fields.title.length < 5) {
+    let isValid = true;
+
+    if (!/^[a-zA-Z ]{5,20}$/.test(fields.title)) {
       newErrors.title = true;
+      isValid = false;
     }
 
-    if (fields.description.length < 5) {
+    if (!/^[a-zA-Z ]{20,}$/.test(fields.description)) {
       newErrors.description = true;
+      isValid = false;
     }
 
     setErrors({
@@ -24,26 +28,36 @@ export const useAddPost = () => {
       title: newErrors.title,
       description: newErrors.description,
     });
+
+    return isValid;
+  };
+
+  const clearForm = (target: any) => {
+    target.title.value = "";
+    target.description.value = "";
   };
 
   const onAddPost = (event: any) => {
     event.preventDefault();
 
-    validate({
+    const dataSend = {
       title: event.target.title.value,
       description: event.target.description.value,
-    });
+      userId: 1,
+    };
 
-    // fetch("https://dummyjson.com/posts/add", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({
-    //     title: "I am in love with someone.",
-    //     userId: 5,
-    //   }),
-    // })
-    //   .then((res) => res.json())
-    //   .then(console.log);
+    if (!validate(dataSend)) return;
+
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dataSend),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        handleClose();
+        clearForm(event.target);
+      });
   };
 
   return { onAddPost, errors };

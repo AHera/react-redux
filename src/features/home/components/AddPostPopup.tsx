@@ -1,3 +1,6 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -18,7 +21,14 @@ export const AddPostPopup = () => {
   };
 
   return (
-    <div>
+    <div
+      css={css`
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px 0px;
+      `}
+    >
       <Button
         variant="contained"
         endIcon={<AddCircleOutlineIcon />}
@@ -27,6 +37,11 @@ export const AddPostPopup = () => {
         Add post
       </Button>
       <Dialog
+        css={css`
+          .MuiDialogContent-root {
+            min-width: 480px;
+          }
+        `}
         open={open}
         keepMounted
         onClose={handleClose}
@@ -34,7 +49,7 @@ export const AddPostPopup = () => {
       >
         <DialogTitle>Add new post</DialogTitle>
         <DialogContent>
-          <AddPostForm />
+          <AddPostForm handleClose={handleClose} />
         </DialogContent>
       </Dialog>
     </div>
