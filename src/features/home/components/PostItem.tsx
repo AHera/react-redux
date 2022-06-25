@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { PostsInterface } from "../interfaces";
 
@@ -11,5 +12,8 @@ export const PostItem = ({ post: { id, title, body } }: Props) => (
       <Link to={`/post/${id}`}>{title}</Link>
     </h3>
     <p>{body}</p>
+    <Button>
+      <Link to={`/post-update/${id}`}>Update Post</Link>
+    </Button>
   </div>
 );
