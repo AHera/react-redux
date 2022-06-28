@@ -1,23 +1,23 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-import { PostsInterface } from "../interfaces";
-import { PostItem } from "./PostItem";
+import { ProductsInterface } from "../interfaces";
+import { ProductItem } from "./ProductItem";
 
 interface Props {
-  posts: PostsInterface[];
+  products: ProductsInterface[];
 }
 
-export const PostList = ({ posts }: Props) => (
+export const ProductList = ({ products }: Props) => (
   <div
     css={css`
       display: flex;
       flex-wrap: wrap;
     `}
   >
-    {posts.map((post) => (
+    {products.map((product) => (
       <div
-        key={post.id}
+        key={product.id}
         css={css`
           border: 1px solid;
           margin: 10px;
@@ -25,7 +25,7 @@ export const PostList = ({ posts }: Props) => (
           width: 250px;
         `}
       >
-        <PostItem post={post} />
+        <ProductItem product={product} />
       </div>
     ))}
   </div>

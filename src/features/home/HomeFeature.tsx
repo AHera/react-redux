@@ -1,19 +1,13 @@
-import { AddPostPopup, PostList } from "./components";
-import { Pagination } from "./components/Pagination";
+import { ProductList } from "./components";
 
-import { useDataPosts } from "./hooks";
+import { useDataProducts } from "./hooks";
 
 export const HomeFeature = () => {
-  const { posts, pagination, onChangePagination } = useDataPosts();
+  const { products } = useDataProducts();
 
   return (
     <div>
-      <AddPostPopup />
-      <PostList posts={posts} />
-      <Pagination
-        onChangePagination={onChangePagination}
-        pagination={pagination}
-      />
+      <ProductList products={products} />
     </div>
   );
 };
